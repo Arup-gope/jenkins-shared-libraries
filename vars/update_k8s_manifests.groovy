@@ -33,9 +33,12 @@ def call(Map config = [:]) {
             fi
             
             # Ensure ingress is using the correct domain
-            if [ -f "${manifestsPath}/10-ingress.yaml" ]; then
-                sed -i "s|host: .*|host: easyshop.letsdeployit.com|g" ${manifestsPath}/10-ingress.yaml
-            fi
+            // DELETE OR COMMENT OUT THIS SECTION IN YOUR SHARED LIBRARY:
+/*
+if [ -f "${manifestsPath}/10-ingress.yaml" ]; then
+    sed -i "s|host: .*|host: easyshop.letsdeployit.com|g" ${manifestsPath}/10-ingress.yaml
+fi
+*/
             
             # Check for changes
             if git diff --quiet; then
