@@ -32,13 +32,7 @@ def call(Map config = [:]) {
                 sed -i "s|image: arupgope/easyshop-migration:.*|image: arupgope/easyshop-migration:${imageTag}|g" ${manifestsPath}/12-migration-job.yaml
             fi
             
-            # Ensure ingress is using the correct domain
-            // DELETE OR COMMENT OUT THIS SECTION IN YOUR SHARED LIBRARY:
-/*
-if [ -f "${manifestsPath}/10-ingress.yaml" ]; then
-    sed -i "s|host: .*|host: easyshop.letsdeployit.com|g" ${manifestsPath}/10-ingress.yaml
-fi
-*/
+            
             
             # Check for changes
             if git diff --quiet; then
